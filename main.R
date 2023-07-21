@@ -23,19 +23,19 @@ stargazer(data[1:5], summary.stat=c("mean","sd","min","max"), header=FALSE,
 
 stargazer(data[6:10], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: 2", label="A.sum.2")
+          title="Size: 2", label="A.sum.2", out = "out/A_sum_2.html")
 
 stargazer(data[11:15], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: 3", label="A.sum.3")
+          title="Size: 3", label="A.sum.3", out = "out/A_sum_3.html")
 
 stargazer(data[16:20], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: 4", label="A.sum.4")
+          title="Size: 4", label="A.sum.4", out = "out/A_sum_4.html")
 
 stargazer(data[21:25], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: Big", label="A.sum.5")
+          title="Size: Big", label="A.sum.5", out = "out/A_sum_5.html")
 
 models.FF.BM <- list()
 for(i in 2:ncol(ff_BM)) {
@@ -48,31 +48,31 @@ stargazer(models.FF.BM[1:5], header=FALSE, font.size="scriptsize", model.numbers
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Small",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="FF.BM.1",
           title="Three-Factor time-series OLS regressions of 25 Size x BM portfolios.",
-          table.layout="=lc-ot-s-n")
+          table.layout="=lc-ot-s-n", out = "out/FF_BM_1.html")
 
 stargazer(models.FF.BM[6:10], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 2",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n",
-          label="FF.BM.2")
+          label="FF.BM.2", out = "out/FF_BM_2.html")
 
 stargazer(models.FF.BM[11:15], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 3",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n",
-          label="FF.BM.3")
+          label="FF.BM.3", out = "out/FF_BM_3.html")
 
 stargazer(models.FF.BM[16:20], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 4",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n", 
-          label="FF.BM.4")
+          label="FF.BM.4", out = "out/FF_BM_4.html")
 
 stargazer(models.FF.BM[21:25], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Big",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n",
-          label="FF.BM.5")
+          label="FF.BM.5", out = "out/FF_BM_5.html")
 
 models.CAPM.BM <- list()
 for(i in 2:ncol(ff_BM)) {
@@ -83,27 +83,32 @@ for(i in 2:ncol(ff_BM)) {
 stargazer(models.CAPM.BM[1:5], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Small",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.1")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.1", 
+          out = "out/CAPM_BM_1.html")
 
 stargazer(models.CAPM.BM[6:10], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 2",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.2")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.2", 
+          out = "out/CAPM_BM_2.html")
 
 stargazer(models.CAPM.BM[11:15], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 3",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE)
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, 
+          out = "out/CAPM_BM_3.html")
 
 stargazer(models.CAPM.BM[16:20], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 4",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.4")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.4", 
+          out = "out/CAPM_BM_4.html")
 
 stargazer(models.CAPM.BM[21:25], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Big",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.5")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.BM.5", 
+          out = "out/CAPM_BM_5.html")
 
 ff_betas$date <- paste(ff_betas$date,"01", sep="")
 ff_betas$date <- as.Date(ff_betas$date, format="%Y%m%d")
@@ -120,23 +125,23 @@ data.ts <- ts(data, start = c(1963, 7), deltat=1/12)
 
 stargazer(data[1:5], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: Small", label="B.sum.1")
+          title="Size: Small", label="B.sum.1", out = "out/B_sum_1.html")
 
 stargazer(data[6:10], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: 2", label="B.sum.2")
+          title="Size: 2", label="B.sum.2", out = "out/B_sum_2.html")
 
 stargazer(data[11:15], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: 3", label="B.sum.3")
+          title="Size: 3", label="B.sum.3", out = "out/B_sum_3.html")
 
 stargazer(data[16:20], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: 4", label="B.sum.4")
+          title="Size: 4", label="B.sum.4", out = "out/B_sum_4.html")
 
 stargazer(data[21:25], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: Big", label="B.sum.5")
+          title="Size: Big", label="B.sum.5", out = "out/B_sum_5.html")
 
 models.FF.Beta <- list()
 for(i in 2:ncol(ff_betas)) {
@@ -149,31 +154,31 @@ stargazer(models.FF.Beta[1:5], header=FALSE, font.size="scriptsize", model.numbe
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Small",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="FF.Beta.1",
           title="Three-Factor time-series OLS regressions of the 25 Size x Beta portfolios.",
-          table.layout="=lc-ot-s-n")
+          table.layout="=lc-ot-s-n", out = "out/FF_Beta_1.html")
 
 stargazer(models.FF.Beta[6:10], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 2",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n", 
-          label="FF.Beta.2")
+          label="FF.Beta.2", out = "out/FF_Beta_2.html")
 
 stargazer(models.FF.Beta[11:15], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 3",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n",
-          label="FF.Beta.3")
+          label="FF.Beta.3", out = "out/FF_Beta_3.html")
 
 stargazer(models.FF.Beta[16:20], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 4",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n",
-          label="FF.Beta.4")
+          label="FF.Beta.4", out = "out/FF_Beta_4.html")
 
 stargazer(models.FF.Beta[21:25], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF","SMB","HML"), 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Big",
           keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, table.layout="=lc-ot-s-n",
-          label="FF.Beta.5")
+          label="FF.Beta.5", out = "out/FF_Beta_5.html")
 
 models.CAPM.Beta <- list()
 for(i in 2:ncol(ff_betas)) {
@@ -184,27 +189,32 @@ for(i in 2:ncol(ff_betas)) {
 stargazer(models.CAPM.Beta[1:5], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Small",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.1")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.1", 
+          out = "out/CAPM_Beta_1.html")
 
 stargazer(models.CAPM.Beta[6:10], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 2",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.2")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.2", 
+          out = "out/CAPM_Beta_2.html")
 
 stargazer(models.CAPM.Beta[11:15], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 3",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.3")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.3", 
+          out = "out/CAPM_Beta_3.html")
 
 stargazer(models.CAPM.Beta[16:20], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: 4",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.4")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.4", 
+          out = "out/CAPM_Beta_4.html")
 
 stargazer(models.CAPM.Beta[21:25], header=FALSE, font.size="scriptsize", model.numbers=FALSE,
           dep.var.labels.include=FALSE, covariate.labels=c("RM-RF"), table.layout="=lc-ot-s-n", 
           column.labels=c("Low","2","3","4","High"), dep.var.caption="Size: Big",
-          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.5")
+          keep.stat=c("rsq", "ser"), single.row = TRUE, df = FALSE, label="CAPM.Beta.5", 
+          out = "out/CAPM_Beta_5.html")
 
 coeff.ff.bm <- apply(sapply(models.FF.BM, coef), 1, mean)
 coeff.capm.bm <- c(apply(sapply(models.CAPM.BM, coef), 1, mean),NA,NA)
@@ -224,4 +234,6 @@ rownames(comp) <- c("FF BM","CAPM BM","FF Beta","CAPM Beta")
 colnames(comp) <- c("(Intercept)","RM-RF","SMB","HML","R-squared")
 
 options(knitr.kable.NA = '')
-kable(round(comp,3))
+comp.out <- kable(comp, digits=3)
+writeLines(comp.out, 'out/comp_out.html')
+print(comp.out)

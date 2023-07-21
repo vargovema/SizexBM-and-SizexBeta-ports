@@ -1,13 +1,15 @@
-# SizexBM-and-SizexBeta-ports
+# Replicating the Fama French 3-Factor Model with Updated Data up to December 2018
+
+This project presents new findings regarding the pricing power of the Fama French (FF) 3-factor model by reproducing the methodology used in Table I of the FF 1996 paper titled 'Multifactor explanations of asset pricing anomalies.' This study aims to incorporate updated evidence by utilizing the 25 Size x Book-to-Market (BM) portfolios and the 25 Size x Beta portfolios, thus extending the sample period of analysis up to December 2018.
 
 ## 25 Size x BM portfolios
 
 ### Summary statistics for portfolio returns and standard deviations
 
-The summary statistic for 25 Size x BM portfolios is reported in Table 1. From the results, we see that the mean portfolio returns are as per expectation provided by @fama_1996_multifactor. The average portfolio returns are quite similar to the ones reported by @fama_1996_multifactor and they also follow similar trends. For instance, we see that for a given size (market capitalization), the expected monthly excess returns tend to be higher for higher book-to-market values. Moreover, we see that smaller market caps tend to outperform higher market caps, however, the pattern does not hold for companies with low book-to-market values. When it comes to volatility, we see that low book-to-market stocks tend to have higher volatility while stocks with bigger market capitalization tend to have lower volatility. 
+The summary statistic for 25 Size x BM portfolios is reported in Table 1. From the results, we see that the mean portfolio returns are as per expectation provided by Fama and French (1996). The average portfolio returns are quite similar to the ones reported by Fama and French (1996) and they also follow similar trends. For instance, we see that for a given size (market capitalization), the expected monthly excess returns tend to be higher for higher book-to-market values. Moreover, we see that smaller market caps tend to outperform higher market caps, however, the pattern does not hold for companies with low book-to-market values. When it comes to volatility, we see that low book-to-market stocks tend to have higher volatility while stocks with bigger market capitalization tend to have lower volatility. 
 
 <figcaption align = "center"><b> Table 1: Summary statistics of the 25 Size x BM portfolio monthly returns.</b></figcaption> 
-
+<br />
 <table style="text-align:center"><caption><strong>Size: Small</strong></caption>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Statistic</td><td>Mean</td><td>St. Dev.</td><td>Min</td><td>Max</td></tr>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Low</td><td>0.251</td><td>7.858</td><td>-34.817</td><td>38.476</td></tr>
@@ -53,10 +55,11 @@ The summary statistic for 25 Size x BM portfolios is reported in Table 1. From t
 <tr><td style="text-align:left">High</td><td>0.636</td><td>5.338</td><td>-19.592</td><td>23.616</td></tr>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr></table>
 
+Table 1 was created using the package stargazer by Hlavac (2018).
 
-### Estimates of FF alphas, factor loadings, and regression R2s
+### Estimates of FF alphas, factor loadings, and regression R-squared values
 
-The results of OLS regression models built on the time-series that track 25 Size x BM portfolio monthly returns can be found in Table 2. From the results, we observe patterns that are consistent with the models built by @fama_1996_multifactor. First of all, we see that all the factor loadings carry high significance levels that are above 99%. Furthermore, they follow a similar pattern since the bigger the size of market capitalization, the smaller the factor loading of the SMB (small minus big) factor. The SMB factor is positive for almost all the stocks except for big market caps where the factor has a negative loading. The emerging pattern is explained by @fama_1996_multifactor who suggest that "[s]tocks with low long-term past returns (losers) tend to have positive SMB and HML slopes (they are smaller and relatively distressed) and higher future average returns" (p.56). When it comes to HML (high minus low) factor loading, we see that they are negative for all the low book-to-market equities. Otherwise, the stocks have a positive HML factor loading that tends to increase for higher market caps. Concerning the model alphas, many of them do not carry statistical significance. Nevertheless, Table 7 suggests the average to be around -0.015 which is in accordance with the expectation of @fama_1996_multifactor that the alpha values are close to 0 on average. Concerning the R-squared values, all of them are above 80% and they tend to be higher for smaller market caps.
+The results of OLS regression models built on the time-series that track 25 Size x BM portfolio monthly returns can be found in Table 2. From the results, we observe patterns that are consistent with the models built by Fama and French (1996). First of all, we see that all the factor loadings carry high significance levels that are above 99%. Furthermore, they follow a similar pattern since the bigger the size of market capitalization, the smaller the factor loading of the SMB (small minus big) factor. The SMB factor is positive for almost all the stocks except for big market caps where the factor has a negative loading. The emerging pattern is explained by Fama and French (1996) who suggest that "[s]tocks with low long-term past returns (losers) tend to have positive SMB and HML slopes (they are smaller and relatively distressed) and higher future average returns" (p.56). When it comes to HML (high minus low) factor loading, we see that they are negative for all the low book-to-market equities. Otherwise, the stocks have a positive HML factor loading that tends to increase for higher market caps. Concerning the model alphas, many of them do not carry statistical significance. Nevertheless, Table 7 suggests the average to be around -0.015 which is in accordance with the expectation of Fama and French (1996) that the alpha values are close to 0 on average. Concerning the R-squared values, all of them are above 80% and they tend to be higher for smaller market caps.
 
 <figcaption align = "center"><b>Table 2: Three-Factor time-series OLS regressions of 25 Size x BM portfolios.</b></figcaption>
 
@@ -121,12 +124,13 @@ The results of OLS regression models built on the time-series that track 25 Size
 <tr><td colspan="6" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="5" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
+Table 2 was created using the package stargazer by Hlavac (2018).
 
-### 3. discuss how the results in 1. and 2. support or weaken the evidence provided by FF (1996) 
+### Discussing how the results support or weaken the evidence provided by FF (1996) 
 
-Overall, the findings of the analysis of the 25 Size x BM portfolios support the findings of @fama_1996_multifactor which means that their conclusions hold with more recent market data. Moreover, Table 7 suggests that the average R-squared value of the implemented FF model is around 91.2% which is quite close to the average R-squared value of 93% provided in the research by @fama_1996_multifactor. Additionally, the alpha values tend to be negative for smaller book-to-market equities and positive for higher book-to-market equities, similar to the observation of @fama_1996_multifactor.
+Overall, the findings of the analysis of the 25 Size x BM portfolios support the findings of Fama and French (1996) which means that their conclusions hold with more recent market data. Moreover, Table 7 suggests that the average R-squared value of the implemented FF model is around 91.2% which is quite close to the average R-squared value of 93% provided in the research by Fama and French (1996). Additionally, the alpha values tend to be negative for smaller book-to-market equities and positive for higher book-to-market equities, similar to the observation of Fama and French (1996).
 
-### 4. provide evidence and discuss whether or not the FF model performs better than the CAPM
+### Evidence and discussion on whether or not the FF model performs better than the CAPM
 
 Based on the regression output in Table 3, we see that the CAPM model has higher loading of the market premium factor. However, the CAPM performs worse than the three-factor FF model since we see that the R-squared values are significantly lower. More specifically, the R-squared values are around 16.2% lower on average for CAPM models as depicted in Table 7. 
 
@@ -182,14 +186,16 @@ Based on the regression output in Table 3, we see that the CAPM model has higher
 <tr><td colspan="6" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="5" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-## Task B
+Table 3 was created using the package stargazer by Hlavac (2018).
 
-### 1. report summary statistics for portfolio returns and standard deviations
+## 25 Size x Beta portfolios
+
+### Reporting summary statistics for portfolio returns and standard deviations
 
 The summary statistic for 25 Size x Beta portfolios is reported in Table 4. From the summary statistics in Table 4, we again see that smaller market caps tend to outperform bigger market caps when it comes to the average monthly excess returns. However, as the book-to-market equity is getting higher, we do not see the same pattern as with 25 Size x BM portfolios since the returns initially start to increase for higher book-to-market values and then they start decreasing. Regarding the volatility of the  25 Size x Beta portfolios, Table 4 suggests that the beta portfolios are less volatile than the 25 Size x BM portfolios. Moreover, the volatility tends to increase for higher book-to-market equities. 
 
 <figcaption align = "center"><b>Table 4: Summary statistics of the 25 Size x Beta portfolio monthly returns.</b></figcaption>
-
+<br />
 <table style="text-align:center"><caption><strong>Size: Small</strong></caption>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Statistic</td><td>Mean</td><td>St. Dev.</td><td>Min</td><td>Max</td></tr>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Low</td><td>0.723</td><td>4.380</td><td>-23.622</td><td>23.026</td></tr>
@@ -235,7 +241,9 @@ The summary statistic for 25 Size x Beta portfolios is reported in Table 4. From
 <tr><td style="text-align:left">High</td><td>0.409</td><td>7.055</td><td>-29.837</td><td>20.821</td></tr>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr></table>
 
-### 2. report estimates of FF alphas, factor loadings, and regression R2s
+Table 4 was created using the package stargazer by Hlavac (2018).
+
+### Reporting estimates of FF alphas, factor loadings, and regression R-squared values
 
 The results of OLS regression models build based on the time-series that track 25 Size x Beta portfolio monthly returns can be observed in Table 5. The results suggest that most of the factor loadings tend to carry high significance levels above 99%. However, the HML factor seems to be not significant for market caps of big size and book-to-market values of 3 and 4 (see the last table in Table 5). Moreover, the HML factor loadings for high book-to-market values of sizes 3 and 4 are not significant as well. Concerning the SMB factor, it seems to not carry significance only for low book-to-market equity of size 4 and 4 book-to-market value of size big. The R-squared values of the models in Table 5 tend to be lower than those in Table 2. Nevertheless, the emerging pattern seems to be quite different since the R-squared values tend to increase for higher book-to-market equities, however, the pattern does not hold for big market caps. When it comes to the alpha values, approximately half of them do not carry any significance. Moreover, Table 7 suggests that the alphas are positive on average which is not the case for 25 Size x BM portfolios. Also, all the factor loadings tend to be quite similar for both portfolios with market premium and HML carrying low average loadings for 25 Size x Beta portfolios as depicted in Table 7.
 
@@ -302,11 +310,13 @@ The results of OLS regression models build based on the time-series that track 2
 <tr><td colspan="6" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="5" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-### 3. discuss how the results in 1. and 2. support or weaken the evidence provided by FF (1996) 
+Table 5 was created using the package stargazer by Hlavac (2018).
 
-@fama_1996_multifactor suggest that the average R-squared values should be around 93%, however, that does not hold for 25 Size x Beta portfolios since the average of R-squared values is around 88.3% as shown in Table 7. As @fama_1996_multifactor imply: "Since the average HML return is strongly positive (about 6 percent per year), these negative loadings, which are similar to the HML slopes for low-BE/ME stocks, imply lower expected returns" (p.56). However, we see that the factor loadings of the HML factor are positive for low book-to-market equities which contradicts the evidence provided by @fama_1996_multifactor. This could imply that low book-to-market equities do not have lower expected returns in 25 Size x Beta portfolios. Regarding the alpha values, Table 7 shows that the average is around 0.01 which is following the expectation of @fama_1996_multifactor who suggest that the average should be close to 0.
+### Discussing how the results support or weaken the evidence provided by FF (1996) 
 
-### 4. provide evidence and discuss whether or not the FF model performs better than the CAPM
+Fama and French (1996) suggest that the average R-squared values should be around 93%, however, that does not hold for 25 Size x Beta portfolios since the average of R-squared values is around 88.3% as shown in Table 7. As Fama and French (1996) imply: "Since the average HML return is strongly positive (about 6 percent per year), these negative loadings, which are similar to the HML slopes for low-BE/ME stocks, imply lower expected returns" (p.56). However, we see that the factor loadings of the HML factor are positive for low book-to-market equities which contradicts the evidence provided by Fama and French (1996). This could imply that low book-to-market equities do not have lower expected returns in 25 Size x Beta portfolios. Regarding the alpha values, Table 7 shows that the average is around 0.01 which is following the expectation of Fama and French (1996) who suggest that the average should be close to 0.
+
+### Evidence and discussion on whether or not the FF model performs better than the CAPM
 
 The results of the CAPM model can be found in Table 6 where we see that CAPM performs worse than the FF model by looking at the R-squared values. However, the partial reason for this is the fact that due to the formula for R-squared value, it is higher by default for models with more explanatory variables. Nevertheless, the difference in the performance of the CAPM and FF models for 25 Size x Beta portfolios is not as pronounced as in the difference between the CAPM and FF models for 25 Size x BM portfolios.
 
@@ -362,7 +372,9 @@ The results of the CAPM model can be found in Table 6 where we see that CAPM per
 <tr><td colspan="6" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="5" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-In conclusion, the analysis provided by this paper supports the conclusions of @fama_1996_multifactor when it comes to the 25 Size x BM portfolios. However, the difference between the FF model build on 25 Size x Beta portfolios and the model results of @fama_1996_multifactor are more significant. Overall, we conclude that the FF models perform better on both portfolios analysed in this paper than the CAPM models.
+Table 6 was created using the package stargazer by Hlavac (2018).
+
+In conclusion, the analysis provided by this paper supports the conclusions of Fama and French (1996) when it comes to the 25 Size x BM portfolios. However, the difference between the FF model build on 25 Size x Beta portfolios and the model results of Fama and French (1996) are more significant. Overall, we conclude that the FF models perform better on both portfolios analysed in this paper than the CAPM models.
 
 <figcaption align = "center"><b>Table 7: Comparison of the FF and CAPM models built on 25 Size x BM and Betas portfolios. The comparison table reports the average values of factor loadings, alphas and R-square values.</b></figcaption>
 
@@ -375,5 +387,12 @@ In conclusion, the analysis provided by this paper supports the conclusions of @
 |CAPM Beta |       0.157| 1.083|      |      |     0.750|
 
 
+## References
 
+Fama, Eugene F., and Kenneth R. French. 1996. “Multifactor Explanations of Asset Pricing Anomalies.” The Journal of Finance 51: 55–84. https://doi.org/10.2307/2329302.
+<br />
+Hlavac, Marek. 2018. Stargazer: Well-Formatted Regression and Summary Statistics Tables. Bratislava, Slovakia: Central European Labour Studies Institute (CELSI). https://CRAN.R-project.org/package= stargazer.
 
+## Author
+
+Ema Vargova

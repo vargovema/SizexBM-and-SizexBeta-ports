@@ -19,7 +19,7 @@ data.ts <- ts(data, start = c(1963, 7), deltat=1/12)
 
 stargazer(data[1:5], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
-          title="Size: Small", label="A.sum.1")
+          title="Size: Small", label="A.sum.1", out = "out/A.sum.1.tex")
 
 stargazer(data[6:10], summary.stat=c("mean","sd","min","max"), header=FALSE, 
           font.size="footnotesize", covariate.labels=c("Low","2","3","4","High"), 
